@@ -1,146 +1,79 @@
-import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaInstagram, FaEnvelope, FaPhone } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./Footer.css";
 
 const Footer = () => {
-	return (
-		<footer className="footer">
-			<div className="container">
-				<div className="footer-grid">
-					<div>
-						<h3 className="footer-heading">Acerca del apartamento</h3>
-						<ul className="footer-list">
-							<li>
-								<Link to="/about" className="footer-link">
-									Sobre nosotros
-								</Link>
-							</li>
-							<li>
-								<Link to="/features" className="footer-link">
-									Características
-								</Link>
-							</li>
-							<li>
-								<Link to="/neighborhood" className="footer-link">
-									El vecindario
-								</Link>
-							</li>
-							<li>
-								<Link to="/rules" className="footer-link">
-									Reglas de la casa
-								</Link>
-							</li>
-						</ul>
-					</div>
+  return (
+    <footer className="footer">
+      <div className="footer-content">
+        <div className="footer-grid">
+          <div className="footer-section">
+            <h3>Apartamentos Lisle</h3>
+            <p style={{ color: '#717171', lineHeight: '1.6', marginBottom: '20px' }}>
+              Tu hogar lejos de casa. Dos acogedores apartamentos en el corazón de Lisle, 
+              perfectos para familia y amigos.
+            </p>
+            <div className="footer-social">
+              <a href="https://facebook.com" className="social-link" target="_blank" rel="noopener noreferrer">
+                <FaFacebook />
+              </a>
+              <a href="https://twitter.com" className="social-link" target="_blank" rel="noopener noreferrer">
+                <FaTwitter />
+              </a>
+              <a href="https://instagram.com" className="social-link" target="_blank" rel="noopener noreferrer">
+                <FaInstagram />
+              </a>
+            </div>
+          </div>
 
-					<div>
-						<h3 className="footer-heading">Servicios</h3>
-						<ul className="footer-list">
-							<li>
-								<Link to="/amenities" className="footer-link">
-									Comodidades
-								</Link>
-							</li>
-							<li>
-								<Link to="/transportation" className="footer-link">
-									Transporte
-								</Link>
-							</li>
-							<li>
-								<Link to="/nearby" className="footer-link">
-									Lugares cercanos
-								</Link>
-							</li>
-							<li>
-								<Link to="/activities" className="footer-link">
-									Actividades
-								</Link>
-							</li>
-						</ul>
-					</div>
+          <div className="footer-section">
+            <h3>Enlaces rápidos</h3>
+            <ul>
+              <li><Link to="/">Inicio</Link></li>
+              <li><Link to="/about">Sobre nosotros</Link></li>
+              <li><Link to="/contact">Contacto</Link></li>
+              <li><a href="#apartments">Ver apartamentos</a></li>
+            </ul>
+          </div>
 
-					<div>
-						<h3 className="footer-heading">Reservas</h3>
-						<ul className="footer-list">
-							<li>
-								<Link to="/availability" className="footer-link">
-									Disponibilidad
-								</Link>
-							</li>
-							<li>
-								<Link to="/booking" className="footer-link">
-									Cómo reservar
-								</Link>
-							</li>
-							<li>
-								<Link to="/cancellation" className="footer-link">
-									Política de cancelación
-								</Link>
-							</li>
-							<li>
-								<Link to="/faq" className="footer-link">
-									Preguntas frecuentes
-								</Link>
-							</li>
-						</ul>
-					</div>
+          <div className="footer-section">
+            <h3>Información</h3>
+            <ul>
+              <li><a href="#pricing">Precios</a></li>
+              <li><a href="#amenities">Comodidades</a></li>
+              <li><a href="#location">Ubicación</a></li>
+              <li><a href="#policies">Políticas</a></li>
+            </ul>
+          </div>
 
-					<div>
-						<h3 className="footer-heading">Contacto</h3>
-						<ul className="footer-list">
-							<li>
-								<Link to="/contact" className="footer-link">
-									Contáctanos
-								</Link>
-							</li>
-							<li>
-								<a
-									href="mailto:info@apartamentolisle.com"
-									className="footer-link">
-									info@apartamentolisle.com
-								</a>
-							</li>
-							<li>
-								<a href="tel:+34600000000" className="footer-link">
-									+34 600 000 000
-								</a>
-							</li>
-							<li className="footer-social">
-								<a
-									href="https://facebook.com"
-									target="_blank"
-									rel="noopener noreferrer"
-									className="footer-social-link">
-									<FaFacebook size={20} />
-								</a>
-								<a
-									href="https://twitter.com"
-									target="_blank"
-									rel="noopener noreferrer"
-									className="footer-social-link">
-									<FaTwitter size={20} />
-								</a>
-								<a
-									href="https://instagram.com"
-									target="_blank"
-									rel="noopener noreferrer"
-									className="footer-social-link">
-									<FaInstagram size={20} />
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
+          <div className="footer-section">
+            <h3>Contacto</h3>
+            <ul>
+              <li>
+                <a href="tel:+34123456789">
+                  <FaPhone style={{ marginRight: '8px' }} />
+                  +34 123 456 789
+                </a>
+              </li>
+              <li>
+                <a href="mailto:info@apartamentoslisle.com">
+                  <FaEnvelope style={{ marginRight: '8px' }} />
+                  info@apartamentoslisle.com
+                </a>
+              </li>
+              <li style={{ color: '#717171', marginTop: '12px' }}>
+                Lisle, Francia
+              </li>
+            </ul>
+          </div>
+        </div>
 
-				<div className="footer-bottom">
-					<p>
-						&copy; {new Date().getFullYear()} Apartamento en Lisle. Todos los
-						derechos reservados.
-					</p>
-				</div>
-			</div>
-		</footer>
-	);
+        <div className="footer-bottom">
+          <p>&copy; {new Date().getFullYear()} Apartamentos Lisle. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

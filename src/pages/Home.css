@@ -1,49 +1,344 @@
-/* Home.css */
-
-.home-container {
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
+.home {
+  background: #fff;
 }
 
-.home-main {
-	flex-grow: 1;
-	padding-top: 6rem; /* 24px * 4 = 96px = 6rem */
+/* Hero Section */
+.hero {
+  padding: 40px 0 60px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
 }
 
-.gallery-container {
-	margin-bottom: 2rem; /* 8px * 2 = 16px = 2rem */
+.hero-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.content-grid {
-	display: grid;
-	grid-template-columns: 1fr;
-	gap: 2rem;
+.hero-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 16px;
+  line-height: 1.2;
 }
 
-@media (min-width: 768px) {
-	.content-grid {
-		grid-template-columns: 2fr 1fr;
-	}
+.hero-subtitle {
+  font-size: 20px;
+  color: #717171;
+  margin-bottom: 32px;
+  line-height: 1.4;
 }
 
-.main-content {
-	grid-column: span 1;
+.hero-highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFF8F6;
+  color: #FF385C;
+  padding: 8px 16px;
+  border-radius: 24px;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 40px;
 }
 
-@media (min-width: 768px) {
-	.main-content {
-		grid-column: span 2;
-	}
+/* Apartments Grid */
+.apartments-section {
+  padding: 60px 0;
 }
 
-.sidebar {
-	grid-column: span 1;
-	order: -1;
+.section-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #222;
+  text-align: center;
+  margin-bottom: 48px;
 }
 
-@media (min-width: 768px) {
-	.sidebar {
-		order: 1;
-	}
+.apartments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
+.apartment-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.apartment-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.apartment-image {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+}
+
+.apartment-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.apartment-card:hover .apartment-image img {
+  transform: scale(1.05);
+}
+
+.price-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-weight: 700;
+  color: #FF385C;
+  font-size: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.apartment-content {
+  padding: 24px;
+}
+
+.apartment-header {
+  margin-bottom: 16px;
+}
+
+.apartment-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 8px;
+}
+
+.apartment-description {
+  color: #717171;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.apartment-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #717171;
+  font-size: 14px;
+}
+
+.feature-icon {
+  color: #FF385C;
+}
+
+.apartment-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid #ebebeb;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #222;
+  font-weight: 600;
+}
+
+.rating-star {
+  color: #FF385C;
+}
+
+/* Features Section */
+.features-section {
+  padding: 80px 0;
+  background: #f7f7f7;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+}
+
+.feature-card {
+  background: white;
+  padding: 32px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.feature-card-icon {
+  font-size: 48px;
+  color: #FF385C;
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 12px;
+}
+
+.feature-card p {
+  color: #717171;
+  line-height: 1.6;
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #FF385C 0%, #E61E4D 100%);
+  color: white;
+  text-align: center;
+}
+
+.cta-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.cta-subtitle {
+  font-size: 18px;
+  opacity: 0.9;
+  margin-bottom: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  background: white;
+  color: #FF385C;
+  padding: 16px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3);
+}
+
+.cta-btn.secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.cta-btn.secondary:hover {
+  background: white;
+  color: #FF385C;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 36px;
+  }
+  
+  .hero-subtitle {
+    font-size: 18px;
+  }
+  
+  .apartments-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .apartment-features {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .cta-title {
+    font-size: 28px;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 20px 0 40px;
+  }
+  
+  .hero-title {
+    font-size: 28px;
+  }
+  
+  .apartments-section {
+    padding: 40px 0;
+  }
+  
+  .apartment-content {
+    padding: 20px;
+  }
+  
+  .features-section {
+    padding: 60px 0;
+  }
+  
+  .feature-card {
+    padding: 24px;
+  }
+  
+  .cta-section {
+    padding: 60px 0;
+  }
 }
