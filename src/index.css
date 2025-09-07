@@ -1,0 +1,43 @@
+:root {
+	font-family: "Circular", -apple-system, BlinkMacSystemFont, Roboto,
+		Helvetica Neue, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #ffffff;
+	color: #222222;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+	.container {
+		padding: 0 0.5rem;
+	}
+}
+
+@media (min-width: 768px) {
+	.container {
+		padding: 0 2.5rem;
+	}
+}
+
+@media (min-width: 1280px) {
+	.container {
+		padding: 0 5rem;
+	}
+}

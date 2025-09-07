@@ -1,0 +1,82 @@
+{
+	"apartments": [
+		{
+			"id": "apt1",
+			"name": "Apartamento Interior - Salida Jardín",
+			"image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267",
+			"description": "Acogedor apartamento interior con acceso directo al jardín comunitario. Perfecto para relajarse en un ambiente tranquilo y natural, ideal para parejas o familias pequeñas que buscan comodidad y privacidad.",
+			"price": 10,
+			"bedrooms": 2,
+			"bathrooms": 1,
+			"size": 35,
+			"maxGuests": 4,
+			"features": [
+				"WiFi de alta velocidad",
+				"Cocina completamente equipada",
+				"Aire acondicionado",
+				"Smart TV",
+				"Lavadora",
+				"Balcón con vistas",
+				"Ascensor",
+				"Parking gratuito"
+			],
+			"availability": [],
+			"bookings": [
+				{
+					"id": "booking-demo-1",
+					"checkIn": "2024-01-15",
+					"checkOut": "2024-01-20",
+					"guests": 2,
+					"guestName": "María García",
+					"guestEmail": "maria@example.com",
+					"totalPrice": 475,
+					"createdAt": "2024-01-01T10:00:00.000Z"
+				},
+				{
+					"id": "booking-demo-2",
+					"checkIn": "2024-02-10",
+					"checkOut": "2024-02-15",
+					"guests": 3,
+					"guestName": "Carlos López",
+					"guestEmail": "carlos@example.com",
+					"totalPrice": 475,
+					"createdAt": "2024-01-05T14:30:00.000Z"
+				}
+			]
+		},
+		{
+			"id": "apt2",
+			"name": "Apartamento Jardín - Vista Exterior",
+			"image": "https://images.unsplash.com/photo-1560185007-cde436f6a4d0",
+			"description": "Luminoso apartamento con vistas al exterior y acceso a terraza privada. Disfruta de la luz natural y el espacio al aire libre, perfecto para familias que valoran la tranquilidad y el contacto con la naturaleza.",
+			"price": 10,
+			"bedrooms": 2,
+			"bathrooms": 1,
+			"size": 30,
+			"maxGuests": 4,
+			"features": [
+				"WiFi de alta velocidad",
+				"Cocina equipada",
+				"Aire acondicionado",
+				"TV",
+				"Acceso a piscina comunitaria",
+				"Terraza",
+				"Ascensor",
+				"Parking gratuito"
+			],
+			"availability": [],
+			"bookings": [
+				{
+					"id": "booking-demo-3",
+					"checkIn": "2024-01-25",
+					"checkOut": "2024-01-30",
+					"guests": 2,
+					"guestName": "Ana Martínez",
+					"guestEmail": "ana@example.com",
+					"totalPrice": 425,
+					"createdAt": "2024-01-10T09:15:00.000Z"
+				}
+			]
+		}
+	]
+}
