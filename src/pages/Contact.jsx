@@ -95,8 +95,9 @@ const Contact = () => {
 						<FaMapMarkerAlt className="location-icon" />
 						<h2 className="section-title">Ubicación</h2>
 						<p className="location-text">
-							Estamos en Lisle, en una zona tranquila y cómoda para moverse.
-							Si lo necesitáis, os pasamos ruta y recomendaciones por WhatsApp.
+							Estamos en L'Isle-Jourdain (32600), Gers, Francia, a unos 30
+							minutos en coche de Toulouse. Si lo necesitáis, os pasamos ruta y
+							recomendaciones por WhatsApp.
 						</p>
 						<button
 							className="btn btn-primary"

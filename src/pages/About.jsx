@@ -37,7 +37,8 @@ const About = () => {
 							<FaMapMarkerAlt className="feature-card-icon" />
 							<h3>Ubicación cómoda</h3>
 							<p>
-								Buena conexión y servicios cerca para que todo sea práctico.
+								En L&apos;Isle-Jourdain (32600), Gers, Francia, a media hora en coche
+								de Toulouse.
 							</p>
 						</div>
 						<div className="feature-card">

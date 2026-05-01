@@ -62,7 +62,7 @@ const Footer = () => {
               </li>
               <li style={{ color: '#717171', marginTop: '12px' }}>
                 <FaMapMarkerAlt style={{ marginRight: "8px" }} />
-                Lisle, Francia
+                L'Isle-Jourdain (32600), Francia
               </li>
             </ul>
           </div>

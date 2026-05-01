@@ -10,6 +10,12 @@ import {
   FaHome,
   FaEuroSign,
   FaCheckCircle,
+  FaTrain,
+  FaCarSide,
+  FaMapMarkedAlt,
+  FaStore,
+  FaWater,
+  FaLandmark,
 } from "react-icons/fa";
 import AvailabilityCalendar from "../components/AvailabilityCalendar";
 import { getAllApartments } from "../services/apartmentService";
@@ -170,6 +176,114 @@ const Home = () => {
             </div>
           </div>
           <FamilyDateManager />
+        </div>
+      </section>
+
+      <section id="como-llegar" className="travel-section">
+        <div className="container">
+          <h2 className="section-title">L&apos;Isle-Jourdain (32600) en breve</h2>
+          <p className="section-subtitle">
+            En el Gers (Occitania), a unos 30 km de Toulouse: aproximadamente 30 minutos en coche.
+            Pueblo cómodo para desconectar, con buen acceso y vida local activa.
+          </p>
+          <div className="travel-grid">
+            <article className="travel-card">
+              <h3><FaCarSide /> Llegar en coche</h3>
+              <ul>
+                <li>Referencia general: 30 minutos desde Toulouse.</li>
+                <li>Ubicación: L&apos;Isle-Jourdain, 32600, Francia.</li>
+                <li>
+                  <a
+                    href="https://maps.app.goo.gl/LANNci6MtjCCpLDv6"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Abrir ubicación en Google Maps
+                  </a>
+                </li>
+              </ul>
+            </article>
+            <article className="travel-card">
+              <h3><FaTrain /> Llegar en tren</h3>
+              <ul>
+                <li>Gare de L&apos;Isle-Jourdain con TER Occitanie.</li>
+                <li>Conexión habitual con Toulouse-Matabiau y Auch.</li>
+                <li>
+                  Trayecto orientativo a Toulouse en torno a 45-50 minutos (según horario).
+                </li>
+                <li>
+                  <a
+                    href="https://www.ter.sncf.com/occitanie/se-deplacer/horaires"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Consultar horarios TER
+                  </a>
+                </li>
+              </ul>
+            </article>
+            <article className="travel-card">
+              <h3><FaMapMarkedAlt /> Información oficial útil</h3>
+              <ul>
+                <li>
+                  <a
+                    href="https://www.visit-occitanie.com/es/rail-tour/gares-etapes/lisle-jourdain/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Ficha de L&apos;Isle-Jourdain en Visit Occitanie
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.tourisme-gascognetoulousaine.fr/decouvrir/decouvrir-nos-villages/lisle-jourdain/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Oficina de turismo local
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.mairie-islejourdain.fr/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Web del ayuntamiento
+                  </a>
+                </li>
+              </ul>
+            </article>
+          </div>
+
+          <div className="guide-grid" style={{ marginTop: "16px" }}>
+            <article className="guide-card">
+              <h3><FaStore /> Plan de sábado</h3>
+              <ul>
+                <li>Mercado de plein vent: sábados por la mañana.</li>
+                <li>Más de 130 expositores (productores, comercio y artesanía).</li>
+                <li>
+                  Se celebra en zona centro (Place Gambetta / Hôtel de Ville y calles cercanas).
+                </li>
+              </ul>
+            </article>
+            <article className="guide-card">
+              <h3><FaWater /> Naturaleza y deporte</h3>
+              <ul>
+                <li>Lago y base de ocio con actividades al aire libre.</li>
+                <li>Opciones citadas en turismo: paddle, pédalo y telesquí acuático.</li>
+                <li>Rutas de paseo/senderismo por el entorno del valle del Save.</li>
+              </ul>
+            </article>
+            <article className="guide-card">
+              <h3><FaLandmark /> Qué ver en el pueblo</h3>
+              <ul>
+                <li>Museo Europeo de Arte Campanario.</li>
+                <li>Casa Claude Augé y su vidriera “La Semeuse”.</li>
+                <li>Centro histórico y ambiente de pueblo con servicios cerca.</li>
+              </ul>
+            </article>
+          </div>
         </div>
       </section>
 
