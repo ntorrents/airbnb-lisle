@@ -15,9 +15,13 @@ import {
   FaTrain,
   FaCarSide,
   FaCheckCircle,
+  FaPlaneArrival,
+  FaChild,
+  FaLandmark,
 } from "react-icons/fa";
 import AvailabilityCalendar from "../components/AvailabilityCalendar";
 import { getAllApartments } from "../services/apartmentService";
+import FamilyDateManager from "../components/FamilyDateManager";
 import "./Home.css";
 
 const Home = () => {
@@ -174,6 +178,7 @@ const Home = () => {
               <p>Pensado para gente cercana que busca una estancia cómoda y sin ruido.</p>
             </div>
           </div>
+          <FamilyDateManager />
         </div>
       </section>
 
@@ -184,9 +189,17 @@ const Home = () => {
             <article className="travel-card">
               <h3><FaTrain /> Llegada en transporte público</h3>
               <ul>
-                <li>Tren hasta Lille y conexión local a Lisle.</li>
-                <li>Desde la estación, trayecto corto en bus/taxi.</li>
+                <li>Tren de larga distancia hasta Lille Europe o Lille Flandres.</li>
+                <li>Conexión regional hacia Lisle + tramo corto en bus o taxi.</li>
                 <li>Podemos enviarte la ruta exacta por WhatsApp.</li>
+              </ul>
+            </article>
+            <article className="travel-card">
+              <h3><FaPlaneArrival /> Si vienes en avión</h3>
+              <ul>
+                <li>Aeropuertos útiles: Lille-Lesquin, Bruselas o Charleroi.</li>
+                <li>Desde aeropuerto: tren o coche de alquiler según horarios.</li>
+                <li>Te pasamos la mejor combinación según tu hora de llegada.</li>
               </ul>
             </article>
             <article className="travel-card">
@@ -228,6 +241,33 @@ const Home = () => {
                 <li>Plan familiar: parque y ruta corta por la zona.</li>
                 <li>Escapada cultural de día y vuelta a descansar.</li>
               </ul>
+            </article>
+          </div>
+
+          <div className="itineraries-grid">
+            <article className="itinerary-card">
+              <h3><FaHeart /> Escapada tranquila (2 días)</h3>
+              <ol>
+                <li>Paseo por el pueblo + mercado local.</li>
+                <li>Tarde de terraza y cena en restaurante cercano.</li>
+                <li>Excursión corta a Lille antes de volver.</li>
+              </ol>
+            </article>
+            <article className="itinerary-card">
+              <h3><FaChild /> Plan con peques (2-3 días)</h3>
+              <ol>
+                <li>Parque local y actividades al aire libre.</li>
+                <li>Día de visita a zona con museo/parque interactivo.</li>
+                <li>Comida familiar y descanso en el apartamento.</li>
+              </ol>
+            </article>
+            <article className="itinerary-card">
+              <h3><FaLandmark /> Ruta cultural (3 días)</h3>
+              <ol>
+                <li>Centro histórico de Lille.</li>
+                <li>Excursión a Gante o Brujas.</li>
+                <li>Último día relajado por Lisle y alrededores.</li>
+              </ol>
             </article>
           </div>
         </div>

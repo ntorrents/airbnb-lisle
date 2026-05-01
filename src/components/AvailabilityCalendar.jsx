@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { FaChevronLeft, FaChevronRight, FaTimes, FaWhatsapp, FaPhone } from "react-icons/fa";
+import { getCombinedBookings } from "../services/apartmentService";
 import "./AvailabilityCalendar.css";
 
 const AvailabilityCalendar = ({ apartment, onClose }) => {
@@ -15,10 +16,11 @@ const AvailabilityCalendar = ({ apartment, onClose }) => {
   };
 
   const occupiedDates = useMemo(() => {
-    if (!apartment?.bookings?.length) return [];
+    const allBookings = apartment ? getCombinedBookings(apartment.id) : [];
+    if (!allBookings.length) return [];
 
     const dates = [];
-    apartment.bookings.forEach((booking) => {
+    allBookings.forEach((booking) => {
       const start = new Date(booking.checkIn);
       const end = new Date(booking.checkOut);
 

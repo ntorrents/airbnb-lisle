@@ -227,6 +227,20 @@
   background: #fafafb;
 }
 
+.disponibilidad-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.availability-note {
+  text-align: center;
+  margin-top: 16px;
+  color: #5d5d66;
+  font-size: 14px;
+}
+
 .features-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -264,6 +278,10 @@
   gap: 16px;
 }
 
+.travel-grid.three-cols {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
 .travel-card,
 .guide-card {
   background: #fff;
@@ -287,6 +305,35 @@
   padding-left: 18px;
   color: #5e5e68;
   line-height: 1.65;
+}
+
+.itineraries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.itinerary-card {
+  border: 1px solid #ececf0;
+  border-radius: 14px;
+  padding: 18px;
+  background: #ffffff;
+}
+
+.itinerary-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.itinerary-card ol {
+  margin: 0;
+  padding-left: 18px;
+  color: #5e5e68;
+  line-height: 1.6;
 }
 
 .local-guide-section {
@@ -378,5 +425,9 @@
   .travel-section,
   .local-guide-section {
     padding: 52px 0;
+  }
+
+  .disponibilidad-layout {
+    grid-template-columns: 1fr;
   }
 }

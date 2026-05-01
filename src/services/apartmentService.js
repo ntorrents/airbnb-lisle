@@ -1,5 +1,22 @@
 import apartmentsData from "../data/apartments.json";
 
+const STORAGE_KEY = "family-apartment-blocks";
+
+const parseStoredBlocks = () => {
+	if (typeof window === "undefined") return {};
+	try {
+		const rawValue = window.localStorage.getItem(STORAGE_KEY);
+		return rawValue ? JSON.parse(rawValue) : {};
+	} catch {
+		return {};
+	}
+};
+
+const writeStoredBlocks = (blocksMap) => {
+	if (typeof window === "undefined") return;
+	window.localStorage.setItem(STORAGE_KEY, JSON.stringify(blocksMap));
+};
+
 // Función para obtener todos los apartamentos
 export const getAllApartments = () => {
 	return apartmentsData.apartments;
@@ -21,7 +38,8 @@ export const checkAvailability = (apartmentId, checkIn, checkOut) => {
 
 	// Por defecto, los apartamentos están siempre disponibles
 	// Solo verificamos si hay conflictos con reservas existentes
-	return !apartment.bookings.some((booking) => {
+	const bookings = getApartmentBookings(apartmentId);
+	return !bookings.some((booking) => {
 		const bookingStart = new Date(booking.checkIn);
 		const bookingEnd = new Date(booking.checkOut);
 
@@ -66,6 +84,58 @@ export const createBooking = (apartmentId, booking) => {
 	return { success: true, booking: newBooking };
 };
 
+export const getManualBlocks = (apartmentId) => {
+	const blocksMap = parseStoredBlocks();
+	return blocksMap[apartmentId] || [];
+};
+
+export const addManualBlock = (apartmentId, block) => {
+	const apartment = getApartmentById(apartmentId);
+	if (!apartment) {
+		return { success: false, message: "Apartamento no encontrado" };
+	}
+
+	if (!checkAvailability(apartmentId, block.checkIn, block.checkOut)) {
+		return {
+			success: false,
+			message: "Ese rango ya está ocupado por otra reserva/bloqueo",
+		};
+	}
+
+	const blocksMap = parseStoredBlocks();
+	const newBlock = {
+		id: `manual-${Date.now()}`,
+		checkIn: block.checkIn,
+		checkOut: block.checkOut,
+		note: block.note || "Bloqueo familiar",
+		type: "manual-block",
+		createdAt: new Date().toISOString(),
+	};
+
+	blocksMap[apartmentId] = [...(blocksMap[apartmentId] || []), newBlock];
+	writeStoredBlocks(blocksMap);
+
+	return { success: true, block: newBlock };
+};
+
+export const addFamilyBlock = (apartmentId, block) =>
+	addManualBlock(apartmentId, {
+		checkIn: block.checkIn,
+		checkOut: block.checkOut,
+		note: block.reason || "uso-familiar",
+	});
+
+export const removeManualBlock = (apartmentId, blockId) => {
+	const blocksMap = parseStoredBlocks();
+	const currentBlocks = blocksMap[apartmentId] || [];
+	blocksMap[apartmentId] = currentBlocks.filter((block) => block.id !== blockId);
+	writeStoredBlocks(blocksMap);
+	return { success: true };
+};
+
+export const removeFamilyBlock = (apartmentId, blockId) =>
+	removeManualBlock(apartmentId, blockId);
+
 // Función para cancelar una reserva
 export const cancelBooking = (apartmentId, bookingId) => {
 	const apartment = getApartmentById(apartmentId);
@@ -90,5 +160,21 @@ export const getApartmentBookings = (apartmentId) => {
 	const apartment = getApartmentById(apartmentId);
 	if (!apartment) return [];
 
-	return apartment.bookings;
+	const manualBlocks = getManualBlocks(apartmentId);
+	return [...apartment.bookings, ...manualBlocks];
+};
+
+export const getCombinedBookings = (apartmentId) =>
+	getApartmentBookings(apartmentId);
+
+export const getAllFamilyBlocks = () => {
+	return getAllApartments().flatMap((apartment) => {
+		const blocks = getManualBlocks(apartment.id);
+		return blocks.map((block) => ({
+			...block,
+			apartmentId: apartment.id,
+			apartmentName: apartment.name,
+			reason: block.note || "Bloqueo familiar",
+		}));
+	});
 };
