@@ -49,6 +49,19 @@
   transition: color 0.2s ease;
 }
 
+.nav-link.disabled {
+  color: #b0b0b0;
+  cursor: not-allowed;
+}
+
+.nav-link.disabled:hover {
+  color: #b0b0b0;
+}
+
+.nav-link.disabled::after {
+  display: none;
+}
+
 .nav-link:hover {
   color: #FF385C;
 }
@@ -141,8 +154,17 @@
   border-bottom: 1px solid #f7f7f7;
 }
 
+.mobile-nav-link.disabled {
+  color: #b0b0b0;
+  cursor: not-allowed;
+}
+
 .mobile-nav-link:hover {
   color: #FF385C;
+}
+
+.mobile-nav-link.disabled:hover {
+  color: #b0b0b0;
 }
 
 .mobile-nav-link:last-child {

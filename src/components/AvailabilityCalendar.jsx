@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import { useMemo, useState } from "react";
 import { FaChevronLeft, FaChevronRight, FaTimes, FaWhatsapp, FaPhone } from "react-icons/fa";
 import "./AvailabilityCalendar.css";
 
 const AvailabilityCalendar = ({ apartment, onClose }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [selectedDates, setSelectedDates] = useState([]);
   const [checkIn, setCheckIn] = useState(null);
   const [checkOut, setCheckOut] = useState(null);
   
@@ -15,20 +14,27 @@ const AvailabilityCalendar = ({ apartment, onClose }) => {
     return nextMonth;
   };
 
-  // Sample occupied dates
-  const occupiedDates = [
-    new Date(2024, 11, 15),
-    new Date(2024, 11, 16),
-    new Date(2024, 11, 22),
-    new Date(2024, 11, 23),
-    new Date(2024, 11, 24),
-    new Date(2024, 11, 25),
-    new Date(2024, 11, 31),
-    new Date(2025, 0, 1),
-    new Date(2025, 0, 6),
-    new Date(2025, 0, 12),
-    new Date(2025, 0, 13),
-  ];
+  const occupiedDates = useMemo(() => {
+    if (!apartment?.bookings?.length) return [];
+
+    const dates = [];
+    apartment.bookings.forEach((booking) => {
+      const start = new Date(booking.checkIn);
+      const end = new Date(booking.checkOut);
+
+      if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime())) {
+        return;
+      }
+
+      const current = new Date(start);
+      while (current < end) {
+        dates.push(new Date(current));
+        current.setDate(current.getDate() + 1);
+      }
+    });
+
+    return dates;
+  }, [apartment]);
 
   const monthNames = [
     "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
@@ -96,24 +102,13 @@ const AvailabilityCalendar = ({ apartment, onClose }) => {
       // Start new selection
       setCheckIn(date);
       setCheckOut(null);
-      setSelectedDates([date]);
     } else if (checkIn && !checkOut) {
       if (date < checkIn) {
         // If selected date is before check-in, make it the new check-in
         setCheckIn(date);
-        setSelectedDates([date]);
       } else {
         // Set as check-out
         setCheckOut(date);
-        
-        // Generate all dates in range
-        const dates = [];
-        const current = new Date(checkIn);
-        while (current <= date) {
-          dates.push(new Date(current));
-          current.setDate(current.getDate() + 1);
-        }
-        setSelectedDates(dates);
       }
     }
   };
@@ -121,7 +116,6 @@ const AvailabilityCalendar = ({ apartment, onClose }) => {
   const clearDates = () => {
     setCheckIn(null);
     setCheckOut(null);
-    setSelectedDates([]);
   };
 
   const navigateMonth = (direction) => {
@@ -244,7 +238,7 @@ const AvailabilityCalendar = ({ apartment, onClose }) => {
               </div>
             </div>
             
-            {selectedDates.length > 0 && (
+            {(checkIn || checkOut) && (
               <div className="clear-dates">
                 <button onClick={clearDates} className="clear-btn">
                   Limpiar fechas
