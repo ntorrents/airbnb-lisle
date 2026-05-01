@@ -18,14 +18,12 @@ const Navbar = () => {
 
         {/* Navigation - Desktop */}
         <nav className="navbar-nav">
-          <Link to="/" className="nav-link">
-            Inicio
-          </Link>
+          <a href="/#apartamentos" className="nav-link">Apartamentos</a>
+          <a href="/#disponibilidad" className="nav-link">Disponibilidad</a>
+          <a href="/#como-llegar" className="nav-link">Cómo llegar</a>
+          <a href="/#guia-local" className="nav-link">Guía local</a>
           <Link to="/about" className="nav-link">
             Sobre nosotros
-          </Link>
-          <Link to="/contact" className="nav-link">
-            Contacto
           </Link>
         </nav>
 
@@ -57,27 +55,11 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="mobile-menu">
           <nav className="mobile-nav">
-            <Link
-              to="/"
-              className="mobile-nav-link"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Inicio
-            </Link>
-            <Link
-              to="/about"
-              className="mobile-nav-link"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Sobre nosotros
-            </Link>
-            <Link
-              to="/contact"
-              className="mobile-nav-link"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Contacto
-            </Link>
+            <a href="/#apartamentos" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>Apartamentos</a>
+            <a href="/#disponibilidad" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>Disponibilidad</a>
+            <a href="/#como-llegar" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>Cómo llegar</a>
+            <a href="/#guia-local" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>Guía local</a>
+            <Link to="/about" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>Sobre nosotros</Link>
           </nav>
           
           <div className="mobile-contact">

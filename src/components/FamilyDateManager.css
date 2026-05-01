@@ -1,0 +1,129 @@
+.family-manager {
+  background: #ffffff;
+  border: 1px solid #ececf0;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(20, 20, 24, 0.05);
+}
+
+.family-manager-header {
+  margin-bottom: 16px;
+}
+
+.family-manager-header h3 {
+  font-size: 20px;
+  margin-bottom: 6px;
+  color: #1f1f25;
+}
+
+.family-manager-header p {
+  color: #62626d;
+  font-size: 14px;
+}
+
+.family-manager-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 10px;
+  align-items: end;
+}
+
+.family-manager-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.family-manager-field label {
+  font-size: 13px;
+  color: #4f4f59;
+  font-weight: 600;
+}
+
+.family-manager-field input,
+.family-manager-field select {
+  border: 1px solid #dadbe2;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.family-manager-add {
+  border: none;
+  border-radius: 8px;
+  background: #0f7f71;
+  color: #fff;
+  font-weight: 700;
+  padding: 11px 14px;
+  cursor: pointer;
+}
+
+.family-manager-add:hover {
+  background: #0c6a5f;
+}
+
+.family-manager-error {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #b42318;
+}
+
+.family-bookings {
+  margin-top: 18px;
+}
+
+.family-bookings h4 {
+  font-size: 15px;
+  color: #2a2a31;
+  margin-bottom: 10px;
+}
+
+.family-bookings ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.family-booking-item {
+  border: 1px solid #ececf1;
+  border-radius: 10px;
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.family-booking-text {
+  font-size: 14px;
+  color: #43434b;
+}
+
+.family-booking-remove {
+  border: none;
+  background: #fff4f5;
+  color: #c21139;
+  border-radius: 8px;
+  padding: 8px 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.family-booking-remove:hover {
+  background: #ffe8eb;
+}
+
+@media (max-width: 900px) {
+  .family-manager-form {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .family-manager-form {
+    grid-template-columns: 1fr;
+  }
+}

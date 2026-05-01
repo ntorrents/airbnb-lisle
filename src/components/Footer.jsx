@@ -1,4 +1,4 @@
-import { FaFacebook, FaTwitter, FaInstagram, FaEnvelope, FaPhone } from "react-icons/fa";
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaWhatsapp } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./Footer.css";
 
@@ -8,41 +8,41 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-grid">
           <div className="footer-section">
-            <h3>Apartamentos Lisle</h3>
-            <p style={{ color: '#717171', lineHeight: '1.6', marginBottom: '20px' }}>
-              Tu hogar lejos de casa. Dos acogedores apartamentos en el corazón de Lisle, 
-              perfectos para familia y amigos.
+            <h3>Casa familiar en Lisle</h3>
+            <p className="footer-lead">
+              Un espacio de la familia que compartimos con amigos para escapadas tranquilas.
+              Precio simbólico para cubrir gastos mínimos.
             </p>
-            <div className="footer-social">
-              <a href="https://facebook.com" className="social-link" target="_blank" rel="noopener noreferrer">
-                <FaFacebook />
-              </a>
-              <a href="https://twitter.com" className="social-link" target="_blank" rel="noopener noreferrer">
-                <FaTwitter />
-              </a>
-              <a href="https://instagram.com" className="social-link" target="_blank" rel="noopener noreferrer">
-                <FaInstagram />
+            <div className="footer-social compact">
+              <a
+                href="https://wa.me/34123456789"
+                className="social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Escribir por WhatsApp"
+              >
+                <FaWhatsapp />
               </a>
             </div>
           </div>
 
           <div className="footer-section">
-            <h3>Enlaces rápidos</h3>
+            <h3>Atajos</h3>
             <ul>
-              <li><Link to="/">Inicio</Link></li>
-              <li><Link to="/about">Sobre nosotros</Link></li>
-              <li><Link to="/contact">Contacto</Link></li>
-              <li><a href="#apartments">Ver apartamentos</a></li>
+              <li><a href="/#apartamentos">Apartamentos</a></li>
+              <li><a href="/#disponibilidad">Disponibilidad</a></li>
+              <li><a href="/#como-llegar">Cómo llegar</a></li>
+              <li><a href="/#guia-local">Guía local</a></li>
             </ul>
           </div>
 
           <div className="footer-section">
-            <h3>Información</h3>
+            <h3>Sobre la estancia</h3>
             <ul>
-              <li><a href="#pricing">Precios</a></li>
-              <li><a href="#amenities">Comodidades</a></li>
-              <li><a href="#location">Ubicación</a></li>
-              <li><a href="#policies">Políticas</a></li>
+              <li>Precio aproximado: 10€ / noche</li>
+              <li>Reserva directa por contacto</li>
+              <li>Parking gratuito</li>
+              <li>Pensado para amigos y familia</li>
             </ul>
           </div>
 
@@ -62,6 +62,7 @@ const Footer = () => {
                 </a>
               </li>
               <li style={{ color: '#717171', marginTop: '12px' }}>
+                <FaMapMarkerAlt style={{ marginRight: "8px" }} />
                 Lisle, Francia
               </li>
             </ul>
@@ -69,7 +70,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} Apartamentos Lisle. Todos los derechos reservados.</p>
+          <p>&copy; {new Date().getFullYear()} Casa familiar Lisle. Hecha para organizar escapadas entre los nuestros.</p>
         </div>
       </div>
     </footer>
