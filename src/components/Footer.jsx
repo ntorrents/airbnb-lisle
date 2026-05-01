@@ -1,5 +1,4 @@
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaWhatsapp } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import "./Footer.css";
 
 const Footer = () => {
@@ -11,7 +10,7 @@ const Footer = () => {
             <h3>Casa familiar en Lisle</h3>
             <p className="footer-lead">
               Un espacio de la familia que compartimos con amigos para escapadas tranquilas.
-              Precio simbólico para cubrir gastos mínimos.
+              Uso interno, sencillo y fácil de gestionar.
             </p>
             <div className="footer-social compact">
               <a
@@ -39,7 +38,7 @@ const Footer = () => {
           <div className="footer-section">
             <h3>Sobre la estancia</h3>
             <ul>
-              <li>Precio aproximado: 10€ / noche</li>
+              <li>Precio: 10€ / noche</li>
               <li>Reserva directa por contacto</li>
               <li>Parking gratuito</li>
               <li>Pensado para amigos y familia</li>

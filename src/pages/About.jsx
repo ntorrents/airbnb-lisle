@@ -1,4 +1,3 @@
-import React from "react";
 import {
 	FaHome,
 	FaMapMarkerAlt,
@@ -10,75 +9,64 @@ import "./About.css";
 const About = () => {
 	return (
 		<div className="about-page">
-			{/* Hero Section */}
 			<section className="hero-about">
 				<div className="container">
 					<div className="hero-content">
-						<h1 className="hero-title">Nuestra historia</h1>
+						<h1 className="hero-title">Sobre esta casa</h1>
 						<p className="hero-subtitle">
-							Somos una familia que ha decidido compartir nuestros dos hermosos
-							apartamentos con amigos y familiares. Ubicados en una zona
-							privilegiada, estos espacios han sido cuidadosamente preparados
-							para ofrecer una experiencia cómoda y acogedora.
+							Este espacio es de la familia y lo usamos para organizarnos con
+							amigos y familiares. La idea es que todo sea claro, cercano y fácil
+							de gestionar para todos.
 						</p>
 					</div>
 				</div>
 			</section>
 
-			{/* Features Section */}
 			<section className="features-section">
 				<div className="container">
-					<h2 className="section-title">
-						¿Por qué elegir nuestros apartamentos?
-					</h2>
+					<h2 className="section-title">Lo importante, sin rodeos</h2>
 					<div className="features-grid">
 						<div className="feature-card">
 							<FaHome className="feature-card-icon" />
-							<h3>Ambiente Familiar</h3>
+							<h3>Ambiente familiar</h3>
 							<p>
-								Espacios diseñados con amor y atención al detalle para que te
-								sientas como en casa.
+								Pensado para gente cercana, con un trato directo y de confianza.
 							</p>
 						</div>
 						<div className="feature-card">
 							<FaMapMarkerAlt className="feature-card-icon" />
-							<h3>Ubicación Privilegiada</h3>
+							<h3>Ubicación cómoda</h3>
 							<p>
-								En el centro de la ciudad, cerca de transporte público,
-								restaurantes y lugares de interés.
+								Buena conexión y servicios cerca para que todo sea práctico.
 							</p>
 						</div>
 						<div className="feature-card">
 							<FaEuroSign className="feature-card-icon" />
-							<h3>Precio Simbólico</h3>
+							<h3>Precio único</h3>
 							<p>
-								Solo 10€ por noche, un precio simbólico para cubrir gastos
-								básicos de mantenimiento.
+								10€ por noche en ambos apartamentos.
 							</p>
 						</div>
 						<div className="feature-card">
 							<FaHandshake className="feature-card-icon" />
-							<h3>Trato Personal</h3>
+							<h3>Gestión sencilla</h3>
 							<p>
-								Atención directa y personalizada. Conocemos a nuestros huéspedes
-								personalmente.
+								Miráis fechas, nos escribís y lo dejamos confirmado sin pasos
+								complicados.
 							</p>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			{/* Apartments Info Section */}
 			<section className="apartments-info-section">
 				<div className="container">
-					<h2 className="section-title">Nuestros Apartamentos</h2>
+					<h2 className="section-title">Apartamentos</h2>
 					<div className="apartments-info-grid">
 						<div className="about-apartment-card">
 							<h3>Apartamento Interior - Salida Jardín</h3>
 							<p>
-								Un acogedor espacio interior con acceso directo a un hermoso
-								jardín privado. Perfecto para quienes buscan tranquilidad y un
-								contacto directo con la naturaleza en pleno centro urbano.
+								Espacio tranquilo y cómodo, ideal para descansar y estar a gusto.
 							</p>
 							<ul>
 								<li>2 dormitorios</li>
@@ -90,9 +78,7 @@ const About = () => {
 						<div className="about-apartment-card">
 							<h3>Apartamento Jardín - Vista Exterior</h3>
 							<p>
-								Apartamento con vistas al exterior y conexión con el jardín.
-								Ideal para familias o grupos que valoran el espacio y la
-								luminosidad natural.
+								Muy luminoso, con buena sensación de amplitud y ambiente relajado.
 							</p>
 							<ul>
 								<li>2 dormitorios</li>
@@ -102,19 +88,6 @@ const About = () => {
 							</ul>
 						</div>
 					</div>
-				</div>
-			</section>
-
-			{/* Philosophy Section */}
-			<section className="philosophy-section">
-				<div className="container">
-					<h2 className="section-title">Nuestra Filosofía</h2>
-					<p className="philosophy-text">
-						Creemos en la hospitalidad auténtica y en crear conexiones genuinas.
-						Nuestros apartamentos no son solo un lugar donde dormir, sino un
-						hogar temporal donde crear recuerdos especiales. Cada detalle ha
-						sido pensado para que tu estancia sea memorable y confortable.
-					</p>
 				</div>
 			</section>
 		</div>

@@ -7,17 +7,9 @@ import {
   FaCalendarAlt,
   FaWhatsapp,
   FaPhone,
-  FaRoute,
-  FaMapMarkedAlt,
   FaHome,
   FaEuroSign,
-  FaTree,
-  FaTrain,
-  FaCarSide,
   FaCheckCircle,
-  FaPlaneArrival,
-  FaChild,
-  FaLandmark,
 } from "react-icons/fa";
 import AvailabilityCalendar from "../components/AvailabilityCalendar";
 import { getAllApartments } from "../services/apartmentService";
@@ -39,21 +31,20 @@ const Home = () => {
       <section className="hero">
         <div className="container">
           <div className="hero-content">
-            <p className="hero-kicker">Casa de vacaciones familiar</p>
-            <h1 className="hero-title">Una escapada entre amigos, sin postureo y sin complicaciones</h1>
+            <p className="hero-kicker">Casa de familia</p>
+            <h1 className="hero-title">Un sitio sencillo para amigos y familiares</h1>
             <p className="hero-subtitle">
-              Estos apartamentos son de la familia y los compartimos con amigos para que puedan
-              disfrutar unos días en Lisle. El objetivo no es hacer negocio, sino cubrir gastos
-              básicos y que todo el mundo tenga una experiencia cómoda.
+              Esta web es interna, pensada para que todos podáis ver rápido lo importante:
+              apartamentos, disponibilidad y contacto. Sin complicaciones y sin enfoque comercial.
             </p>
             <div className="hero-pills">
               <span className="hero-highlight">
                 <FaEuroSign />
-                Precio simbólico: ~10€ por noche
+                Precio único: 10€ por noche
               </span>
               <span className="hero-highlight soft">
                 <FaHeart />
-                Prioridad a familia y amigos
+                Solo para gente cercana
               </span>
             </div>
             <button
@@ -79,8 +70,8 @@ const Home = () => {
             </article>
             <article className="quick-fact-card">
               <FaEuroSign className="quick-fact-icon" />
-              <h3>Coste simbólico</h3>
-              <p>Aproximadamente 10€/noche para mantenimiento y suministros.</p>
+              <h3>Precio claro</h3>
+              <p>10€ por noche en ambos apartamentos.</p>
             </article>
             <article className="quick-fact-card">
               <FaCheckCircle className="quick-fact-icon" />
@@ -95,7 +86,7 @@ const Home = () => {
         <div className="container">
           <h2 className="section-title">Los apartamentos</h2>
           <p className="section-subtitle">
-            Espacios pensados para estar a gusto durante unos días de vacaciones.
+            Todo en una vista simple para elegir rápido.
           </p>
           <div className="apartments-grid">
             {apartments.map((apartment) => (
@@ -154,7 +145,7 @@ const Home = () => {
         <div className="container">
           <h2 className="section-title">Disponibilidad transparente</h2>
           <p className="section-subtitle">
-            Marcamos los días en los que vamos nosotros para que el calendario esté siempre claro.
+            Calendario simple para ver fechas libres de un vistazo.
           </p>
           <div className="features-grid">
             <div className="feature-card">
@@ -164,8 +155,8 @@ const Home = () => {
             </div>
             <div className="feature-card">
               <FaEuroSign className="feature-card-icon" />
-              <h3>Precio justo y simple</h3>
-              <p>Un precio simbólico para cubrir gastos, sin lógica de plataforma turística.</p>
+              <h3>Precio fijo</h3>
+              <p>Siempre 10€ por noche, sin extras ni sorpresas.</p>
             </div>
             <div className="feature-card">
               <FaWhatsapp className="feature-card-icon" />
@@ -174,102 +165,11 @@ const Home = () => {
             </div>
             <div className="feature-card">
               <FaUsers className="feature-card-icon" />
-              <h3>Uso familiar/amigos</h3>
-              <p>Pensado para gente cercana que busca una estancia cómoda y sin ruido.</p>
+              <h3>Uso interno</h3>
+              <p>Solo para familia y amigos, en un entorno tranquilo.</p>
             </div>
           </div>
           <FamilyDateManager />
-        </div>
-      </section>
-
-      <section id="como-llegar" className="travel-section">
-        <div className="container">
-          <h2 className="section-title">Cómo llegar</h2>
-          <div className="travel-grid">
-            <article className="travel-card">
-              <h3><FaTrain /> Llegada en transporte público</h3>
-              <ul>
-                <li>Tren de larga distancia hasta Lille Europe o Lille Flandres.</li>
-                <li>Conexión regional hacia Lisle + tramo corto en bus o taxi.</li>
-                <li>Podemos enviarte la ruta exacta por WhatsApp.</li>
-              </ul>
-            </article>
-            <article className="travel-card">
-              <h3><FaPlaneArrival /> Si vienes en avión</h3>
-              <ul>
-                <li>Aeropuertos útiles: Lille-Lesquin, Bruselas o Charleroi.</li>
-                <li>Desde aeropuerto: tren o coche de alquiler según horarios.</li>
-                <li>Te pasamos la mejor combinación según tu hora de llegada.</li>
-              </ul>
-            </article>
-            <article className="travel-card">
-              <h3><FaCarSide /> Llegada en coche</h3>
-              <ul>
-                <li>Acceso sencillo por carretera principal.</li>
-                <li>Zona tranquila para entrar y descargar equipaje.</li>
-                <li>Parking gratuito incluido en la estancia.</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="guia-local" className="local-guide-section">
-        <div className="container">
-          <h2 className="section-title">Guía local rápida</h2>
-          <div className="guide-grid">
-            <article className="guide-card">
-              <h3><FaMapMarkedAlt /> Qué hay en el pueblo</h3>
-              <ul>
-                <li>Panaderías, cafeterías y restaurantes cercanos.</li>
-                <li>Mercado local y tiendas básicas para el día a día.</li>
-                <li>Paseos agradables por zonas verdes.</li>
-              </ul>
-            </article>
-            <article className="guide-card">
-              <h3><FaRoute /> Pueblos y sitios cercanos</h3>
-              <ul>
-                <li>Lille (ambiente urbano, cultura y restaurantes).</li>
-                <li>Ypres (historia y arquitectura).</li>
-                <li>Gante y Brujas para excursiones de un día.</li>
-              </ul>
-            </article>
-            <article className="guide-card">
-              <h3><FaTree /> Planes recomendados</h3>
-              <ul>
-                <li>Día tranquilo: paseo + terraza + cena local.</li>
-                <li>Plan familiar: parque y ruta corta por la zona.</li>
-                <li>Escapada cultural de día y vuelta a descansar.</li>
-              </ul>
-            </article>
-          </div>
-
-          <div className="itineraries-grid">
-            <article className="itinerary-card">
-              <h3><FaHeart /> Escapada tranquila (2 días)</h3>
-              <ol>
-                <li>Paseo por el pueblo + mercado local.</li>
-                <li>Tarde de terraza y cena en restaurante cercano.</li>
-                <li>Excursión corta a Lille antes de volver.</li>
-              </ol>
-            </article>
-            <article className="itinerary-card">
-              <h3><FaChild /> Plan con peques (2-3 días)</h3>
-              <ol>
-                <li>Parque local y actividades al aire libre.</li>
-                <li>Día de visita a zona con museo/parque interactivo.</li>
-                <li>Comida familiar y descanso en el apartamento.</li>
-              </ol>
-            </article>
-            <article className="itinerary-card">
-              <h3><FaLandmark /> Ruta cultural (3 días)</h3>
-              <ol>
-                <li>Centro histórico de Lille.</li>
-                <li>Excursión a Gante o Brujas.</li>
-                <li>Último día relajado por Lisle y alrededores.</li>
-              </ol>
-            </article>
-          </div>
         </div>
       </section>
 
@@ -277,8 +177,7 @@ const Home = () => {
         <div className="container">
           <h2 className="cta-title">¿Te cuadran las fechas?</h2>
           <p className="cta-subtitle">
-            Escríbenos y te contamos disponibilidad final, cómo entrar al apartamento y
-            recomendaciones personalizadas según los días que vengas.
+            Escríbenos directamente y lo dejamos todo confirmado por WhatsApp o teléfono.
           </p>
           <div className="cta-buttons">
             <a href="https://wa.me/34123456789" className="cta-btn" target="_blank" rel="noopener noreferrer">
