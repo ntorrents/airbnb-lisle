@@ -134,9 +134,7 @@ const AvailabilityCalendar = ({ apartment, onClose }) => {
 
   const calculateTotal = () => {
     const nights = calculateNights();
-    const basePrice = nights * apartment.price;
-    const cleaningFee = 15;
-    return basePrice + cleaningFee;
+    return nights * apartment.price;
   };
 
   const renderCalendarMonth = (date, monthIndex) => {
@@ -301,10 +299,6 @@ const AvailabilityCalendar = ({ apartment, onClose }) => {
                   <div className="price-row">
                     <span>{apartment.price}€ × {nights} noche{nights !== 1 ? 's' : ''}</span>
                     <span>{apartment.price * nights}€</span>
-                  </div>
-                  <div className="price-row">
-                    <span>Gastos de limpieza</span>
-                    <span>15€</span>
                   </div>
                   <div className="price-row total">
                     <span>Total</span>

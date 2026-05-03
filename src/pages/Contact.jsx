@@ -1,4 +1,3 @@
-import React from "react";
 import {
 	FaPhone,
 	FaEnvelope,
@@ -10,30 +9,28 @@ import "./Contact.css";
 const Contact = () => {
 	return (
 		<div className="contact-page">
-			{/* Hero Section */}
 			<section className="hero-contact">
 				<div className="container">
 					<div className="hero-content">
-						<h1 className="hero-title">Ponte en Contacto</h1>
+						<h1 className="hero-title">Contacto directo</h1>
 						<p className="hero-subtitle">
-							Nos encanta conocer a nuestros futuros huéspedes. Si tienes
-							cualquier pregunta o quieres reservar, no dudes en contactarnos.
+							Página interna para familia y amigos. Si os cuadran las fechas,
+							escribidnos y lo organizamos rápido.
 						</p>
 					</div>
 				</div>
 			</section>
 
-			{/* Contact Methods Section */}
 			<section className="contact-methods-section">
 				<div className="container">
-					<h2 className="section-title">Nuestros Canales de Contacto</h2>
+					<h2 className="section-title">Canales de contacto</h2>
 					<div className="contact-grid">
 						<div className="contact-card">
 							<FaPhone className="contact-card-icon" />
 							<h3>Teléfono</h3>
 							<p>+34 123 456 789</p>
 							<a href="tel:+34123456789" className="btn btn-secondary">
-								Llamar ahora
+								Llamar
 							</a>
 						</div>
 
@@ -44,7 +41,7 @@ const Contact = () => {
 							<a
 								href="mailto:info@apartamentoslisle.com"
 								className="btn btn-secondary">
-								Enviar Email
+								Enviar email
 							</a>
 						</div>
 
@@ -57,58 +54,55 @@ const Contact = () => {
 								target="_blank"
 								rel="noopener noreferrer"
 								className="btn btn-secondary">
-								Chatear ahora
+								Abrir WhatsApp
 							</a>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			{/* Booking Process Section */}
 			<section className="booking-process-section">
 				<div className="container">
-					<h2 className="section-title">Proceso de Reserva Sencillo</h2>
+					<h2 className="section-title">Cómo lo hacemos</h2>
 					<div className="process-steps-grid">
 						<div className="step-card">
 							<div className="step-number">1</div>
-							<h3>Contacto Inicial</h3>
-							<p>Ponte en contacto con nosotros por tu medio preferido.</p>
+							<h3>Nos escribís</h3>
+							<p>Por teléfono, WhatsApp o email.</p>
 						</div>
 						<div className="step-card">
 							<div className="step-number">2</div>
-							<h3>Consulta</h3>
-							<p>Te confirmamos la disponibilidad para tus fechas.</p>
+							<h3>Confirmamos fechas</h3>
+							<p>Revisamos disponibilidad con vosotros.</p>
 						</div>
 						<div className="step-card">
 							<div className="step-number">3</div>
-							<h3>Confirmación</h3>
-							<p>Acordamos los detalles finales de tu estancia.</p>
+							<h3>Cerramos detalles</h3>
+							<p>Os pasamos todo lo necesario para entrar.</p>
 						</div>
 						<div className="step-card">
 							<div className="step-number">4</div>
-							<h3>¡A Disfrutar!</h3>
-							<p>Te recibimos y te ayudamos con lo que necesites.</p>
+							<h3>Disfrutar</h3>
+							<p>Precio único de 10€ por noche.</p>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			{/* Location Section */}
 			<section className="location-section-contact">
 				<div className="container location-card">
 					<div className="location-content">
 						<FaMapMarkerAlt className="location-icon" />
-						<h2 className="section-title">Ubicación Privilegiada</h2>
+						<h2 className="section-title">Ubicación</h2>
 						<p className="location-text">
-							Nuestros apartamentos están en el corazón de Lisle, con fácil
-							acceso a transporte público, restaurantes, tiendas y los
-							principales lugares de interés. Todo lo que necesitas, a solo unos
-							pasos.
+							Estamos en L'Isle-Jourdain (32600), Gers, Francia, a unos 30
+							minutos en coche de Toulouse. Si lo necesitáis, os pasamos ruta y
+							recomendaciones por WhatsApp.
 						</p>
 						<button
 							className="btn btn-primary"
 							onClick={() => (window.location.href = "/")}>
-							Explorar Apartamentos
+							Volver al inicio
 						</button>
 					</div>
 				</div>
