@@ -1,31 +1,75 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import "./App.css";
-
-// Importar componentes
+import { CmsProvider } from "./cms/CmsContext";
+import { LanguageProvider } from "./i18n/LanguageContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-
-// Importar páginas
 import Home from "./pages/Home";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
+import ApartmentDetail from "./pages/ApartmentDetail";
+import AdminLogin from "./pages/admin/AdminLogin";
+import AdminGuard from "./pages/admin/AdminGuard";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+
+const ScrollManager = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.slice(1);
+      requestAnimationFrame(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      });
+      return;
+    }
+    window.scrollTo(0, 0);
+  }, [location.pathname, location.hash]);
+
+  return null;
+};
+
+const PublicShell = ({ children }) => (
+  <>
+    <Navbar />
+    <main className="main-content">{children}</main>
+    <Footer />
+  </>
+);
 
 function App() {
-	return (
-		<Router>
-			<div className="app">
-				<Navbar />
-				<main className="main-content">
-					<Routes>
-						<Route path="/" element={<Home />} />
-						<Route path="/about" element={<About />} />
-						<Route path="/contact" element={<Contact />} />
-					</Routes>
-				</main>
-				<Footer />
-			</div>
-		</Router>
-	);
+  return (
+    <CmsProvider>
+      <LanguageProvider>
+        <BrowserRouter>
+          <ScrollManager />
+          <div className="app">
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <PublicShell>
+                    <Home />
+                  </PublicShell>
+                }
+              />
+              <Route
+                path="/apto/:id"
+                element={
+                  <PublicShell>
+                    <ApartmentDetail />
+                  </PublicShell>
+                }
+              />
+              <Route path="/admin/login" element={<AdminLogin />} />
+              <Route path="/admin" element={<AdminGuard />}>
+                <Route index element={<AdminDashboard />} />
+              </Route>
+            </Routes>
+          </div>
+        </BrowserRouter>
+      </LanguageProvider>
+    </CmsProvider>
+  );
 }
 
 export default App;

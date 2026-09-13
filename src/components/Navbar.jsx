@@ -1,84 +1,78 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { FaHome, FaPhone, FaWhatsapp } from "react-icons/fa";
-import { BiMenu, BiX } from "react-icons/bi";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useCms } from "../cms/CmsContext";
+import { useLanguage } from "../i18n/LanguageContext";
 import "./Navbar.css";
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const { t } = useLanguage();
+  const { site } = useCms();
+
+  const links = [
+    { href: "/#apartamentos", label: t("nav.apartments") },
+    { href: "/#disponibilidad", label: t("nav.dates") },
+    { href: "/#casa", label: t("nav.house") },
+    { href: "/#notas", label: t("nav.notes") },
+  ];
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [location.pathname]);
+
+  const close = () => setOpen(false);
 
   return (
-    <header className="navbar">
-      <div className="navbar-container">
-        {/* Logo */}
-        <Link to="/" className="navbar-logo">
-          <FaHome className="navbar-logo-icon" />
-          <span className="navbar-logo-text">Apartamentos Lisle</span>
+    <header
+      className={`nav ${scrolled || location.pathname !== "/" ? "nav--scrolled" : ""}`}
+    >
+      <div className="nav__inner container">
+        <Link to="/" className="nav__brand" onClick={close}>
+          {site.brand}
         </Link>
 
-        {/* Navigation - Desktop */}
-        <nav className="navbar-nav">
-          <a href="/#apartamentos" className="nav-link">Apartamentos</a>
-          <a href="/#disponibilidad" className="nav-link">Disponibilidad</a>
-          <a href="/#como-llegar" className="nav-link">Cómo llegar</a>
-          <Link to="/about" className="nav-link">
-            Sobre nosotros
-          </Link>
-          <Link to="/contact" className="nav-link">
-            Contacto
-          </Link>
-        </nav>
+        <div className="nav__tools">
+          <LanguageSwitcher />
+          <button
+            className={`nav__toggle ${open ? "nav__toggle--open" : ""}`}
+            aria-label={open ? t("nav.closeMenu") : t("nav.openMenu")}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span />
+            <span />
+          </button>
+        </div>
 
-        {/* Contact buttons - Desktop */}
-        <div className="navbar-contact">
-          <a href="tel:+34123456789" className="contact-btn phone">
-            <FaPhone /> Llamar
-          </a>
+        <nav className={`nav__links ${open ? "nav__links--open" : ""}`}>
+          {links.map((link) => (
+            <Link key={link.href} to={link.href} onClick={close}>
+              {link.label}
+            </Link>
+          ))}
           <a
-            href="https://wa.me/34123456789"
-            className="contact-btn whatsapp"
+            className="nav__cta"
+            href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(
+              t("home.waInterest", { brand: site.brand })
+            )}`}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={close}
           >
-            <FaWhatsapp /> WhatsApp
+            {t("nav.whatsapp")}
           </a>
-        </div>
-
-        {/* Mobile menu button */}
-        <button
-          className="mobile-menu-btn"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          {isMenuOpen ? <BiX size={24} /> : <BiMenu size={24} />}
-        </button>
+        </nav>
       </div>
-
-      {/* Mobile menu */}
-      {isMenuOpen && (
-        <div className="mobile-menu">
-          <nav className="mobile-nav">
-            <a href="/#apartamentos" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>Apartamentos</a>
-            <a href="/#disponibilidad" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>Disponibilidad</a>
-            <a href="/#como-llegar" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>Cómo llegar</a>
-            <Link to="/about" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>Sobre nosotros</Link>
-            <Link to="/contact" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>Contacto</Link>
-          </nav>
-          
-          <div className="mobile-contact">
-            <a href="tel:+34123456789" className="mobile-contact-btn">
-              <FaPhone /> +34 123 456 789
-            </a>
-            <a
-              href="https://wa.me/34123456789"
-              className="mobile-contact-btn whatsapp"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaWhatsapp /> WhatsApp
-            </a>
-          </div>
-        </div>
-      )}
     </header>
   );
 };

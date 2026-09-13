@@ -1,0 +1,16 @@
+{
+  "brand": "Lisle",
+  "fullName": "Apartaments Lisle",
+  "location": "L'Isle-Jourdain, 32600 · Gers · Occitània",
+  "locationShort": "L'Isle-Jourdain",
+  "pricePerNight": 10,
+  "mapsUrl": "https://maps.app.goo.gl/LANNci6MtjCCpLDv6",
+  "whatsapp": "34123456789",
+  "phone": "+34 123 456 789",
+  "email": "hola@lisle.casa",
+  "links": {
+    "ter": "https://www.ter.sncf.com/occitanie/se-deplacer/horaires",
+    "tourism": "https://www.tourisme-gascogne-toulousaine.com/",
+    "mairie": "https://www.mairie-islejourdain.fr/"
+  }
+}

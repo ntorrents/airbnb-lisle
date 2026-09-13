@@ -173,8 +173,8 @@ export const getAllFamilyBlocks = () => {
 		return blocks.map((block) => ({
 			...block,
 			apartmentId: apartment.id,
-			apartmentName: apartment.name,
-			reason: block.note || "Bloqueo familiar",
+			apartmentName: apartment.id,
+			reason: block.note || "uso-familiar",
 		}));
 	});
 };

@@ -1,43 +1,202 @@
 :root {
-	font-family: "Circular", -apple-system, BlinkMacSystemFont, Roboto,
-		Helvetica Neue, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  --ink: #1c2a24;
+  --ink-soft: #3d4f46;
+  --mist: #eef2ef;
+  --paper: #f7f5f1;
+  --sage: #2a4a3e;
+  --sage-mid: #3d6b58;
+  --sage-soft: #c5d5cc;
+  --sky: #4a6f8a;
+  --sky-soft: #d4e2ec;
+  --sand: #a67c52;
+  --sand-soft: #e8dcc8;
+  --rose: #8b5a5a;
+  --rose-soft: #e8d4d4;
+  --line: rgba(28, 42, 36, 0.12);
+  --shadow: 0 18px 50px rgba(28, 42, 36, 0.12);
+  --radius: 18px;
+  --font-display: "Syne", system-ui, sans-serif;
+  --font-body: "Source Sans 3", system-ui, sans-serif;
+  --font-note: "Caveat", cursive;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --max: 1120px;
 }
 
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-	margin: 0;
-	padding: 0;
-	background-color: #ffffff;
-	color: #222222;
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 80% 50% at 10% -10%, #d8e6df 0%, transparent 55%),
+    radial-gradient(ellipse 60% 40% at 100% 0%, #e4ddd0 0%, transparent 50%),
+    linear-gradient(180deg, var(--mist) 0%, var(--paper) 40%, #e9efe9 100%);
+  background-attachment: fixed;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  z-index: 9999;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--sage-mid);
+  outline-offset: 3px;
 }
 
 .container {
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 0 1rem;
+  width: min(100% - 2.5rem, var(--max));
+  margin-inline: auto;
 }
 
-@media (min-width: 640px) {
-	.container {
-		padding: 0 0.5rem;
-	}
+.section {
+  padding: clamp(4rem, 8vw, 6.5rem) 0;
 }
 
-@media (min-width: 768px) {
-	.container {
-		padding: 0 2.5rem;
-	}
+.section-kicker {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sage-mid);
+  margin-bottom: 0.75rem;
 }
 
-@media (min-width: 1280px) {
-	.container {
-		padding: 0 5rem;
-	}
+.section-title {
+  font-size: clamp(2rem, 4vw, 2.85rem);
+  letter-spacing: -0.03em;
+  margin-bottom: 0.75rem;
+}
+
+.section-intro {
+  max-width: 36rem;
+  color: var(--ink-soft);
+  font-size: 1.08rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.9rem 1.35rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  transition:
+    transform 0.35s var(--ease-out),
+    background 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.35s ease;
+}
+
+.btn-primary {
+  background: var(--sage);
+  color: #f4f8f5;
+  box-shadow: 0 10px 28px rgba(42, 74, 62, 0.28);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background: var(--ink);
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+}
+
+.btn-ghost:hover {
+  background: #fff;
+  transform: translateY(-2px);
+}
+
+.btn-whatsapp {
+  background: #1f6b4a;
+  color: #f3faf6;
+}
+
+.btn-whatsapp:hover {
+  background: #155338;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: min(100% - 1.25rem, var(--max));
+  }
+
+  .section {
+    padding: 3.25rem 0;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .btn {
+    min-height: 48px;
+    padding: 0.85rem 1.2rem;
+  }
+
+  body {
+    background-attachment: scroll;
+  }
 }

@@ -1,76 +1,39 @@
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaWhatsapp } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { useCms } from "../cms/CmsContext";
+import { useLanguage } from "../i18n/LanguageContext";
 import "./Footer.css";
 
 const Footer = () => {
+  const { t } = useLanguage();
+  const { site } = useCms();
+
   return (
     <footer className="footer">
-      <div className="footer-content">
-        <div className="footer-grid">
-          <div className="footer-section">
-            <h3>Casa familiar en Lisle</h3>
-            <p className="footer-lead">
-              Un espacio de la familia que compartimos con amigos para escapadas tranquilas.
-              Uso interno, sencillo y fácil de gestionar.
-            </p>
-            <div className="footer-social compact">
-              <a
-                href="https://wa.me/34123456789"
-                className="social-link"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Escribir por WhatsApp"
-              >
-                <FaWhatsapp />
-              </a>
-            </div>
-          </div>
-
-          <div className="footer-section">
-            <h3>Atajos</h3>
-            <ul>
-              <li><a href="/#apartamentos">Apartamentos</a></li>
-              <li><a href="/#disponibilidad">Disponibilidad</a></li>
-              <li><a href="/#como-llegar">Cómo llegar</a></li>
-              <li><a href="/#guia-local">Guía local</a></li>
-            </ul>
-          </div>
-
-          <div className="footer-section">
-            <h3>Sobre la estancia</h3>
-            <ul>
-              <li>Precio: 10€ / noche</li>
-              <li>Reserva directa por contacto</li>
-              <li>Parking gratuito</li>
-              <li>Pensado para amigos y familia</li>
-            </ul>
-          </div>
-
-          <div className="footer-section">
-            <h3>Contacto</h3>
-            <ul>
-              <li>
-                <a href="tel:+34123456789">
-                  <FaPhone style={{ marginRight: '8px' }} />
-                  +34 123 456 789
-                </a>
-              </li>
-              <li>
-                <a href="mailto:info@apartamentoslisle.com">
-                  <FaEnvelope style={{ marginRight: '8px' }} />
-                  info@apartamentoslisle.com
-                </a>
-              </li>
-              <li style={{ color: '#717171', marginTop: '12px' }}>
-                <FaMapMarkerAlt style={{ marginRight: "8px" }} />
-                L'Isle-Jourdain (32600), Francia
-              </li>
-            </ul>
-          </div>
+      <div className="container footer__inner">
+        <div>
+          <p className="footer__brand">{site.brand}</p>
+          <p className="footer__meta">
+            {site.location}
+            <br />
+            {t("site.distance")} · {site.pricePerNight}
+            {t("footer.perNight")}
+          </p>
         </div>
-
-        <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} Casa familiar Lisle. Hecha para organizar escapadas entre los nuestros.</p>
+        <div className="footer__links">
+          <Link to="/#apartamentos">{t("footer.apartments")}</Link>
+          <Link to="/#disponibilidad">{t("footer.availability")}</Link>
+          <Link to="/#casa">{t("footer.house")}</Link>
+          <Link to="/#notas">{t("footer.notes")}</Link>
+          <a href={site.mapsUrl} target="_blank" rel="noopener noreferrer">
+            {t("footer.map")}
+          </a>
         </div>
+        <p className="footer__note">
+          {t("footer.note")}{" "}
+          <Link to="/admin/login" className="footer__admin">
+            Família
+          </Link>
+        </p>
       </div>
     </footer>
   );
