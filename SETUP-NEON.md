@@ -18,15 +18,17 @@ Set the same value in:
 
 Default if unset: `lisle-familia` — change it before sharing the site.
 
-## 4. Local development with API
+## 4. Local development
+
 ```bash
-npm i -g vercel
-vercel link
-vercel env pull .env.local
-npx vercel dev
+npm run dev
 ```
 
-`vercel dev` serves the Vite app and `/api/*` together.
+This starts:
+- Vite on http://127.0.0.1:5173
+- Local API on http://127.0.0.1:8787 (proxied as `/api`)
+
+Do **not** rely on `vercel dev` for day-to-day local work with this Vite app.
 
 Without Neon/API, the admin still works in local-only mode (this browser).
 

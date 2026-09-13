@@ -4,8 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently -k -n api,web -c green,cyan \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:web": "vite --port 5173",
+    "dev:api": "node --env-file=.env scripts/dev-api.mjs",
     "dev:full": "vercel dev",
+    "db:seed": "node --env-file=.env scripts/seed-neon.mjs",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
